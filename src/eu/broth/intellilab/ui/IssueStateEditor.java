@@ -30,7 +30,6 @@ class IssueStateEditor extends DefaultCellEditor {
 		return super.getTableCellEditorComponent(table, value, isSelected, row, column);
 	}
 
-
 	private static class StateChangeRenderer extends DefaultListCellRenderer {
 		@Override
 		public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
