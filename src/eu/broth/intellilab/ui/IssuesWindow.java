@@ -123,5 +123,10 @@ public class IssuesWindow extends SimpleToolWindowPanel {
 			EditIssueDialog dialog = new EditIssueDialog(project, null);
 			dialog.show();
 		}
+
+		@Override
+		public void update(AnActionEvent e) {
+			e.getPresentation().setEnabled(client.getProject() != null);
+		}
 	}
 }
