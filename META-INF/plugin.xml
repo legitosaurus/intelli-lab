@@ -1,17 +1,16 @@
 <idea-plugin version="2">
 	<id>eu.broth.intellilab</id>
 	<name>IntelliLab</name>
-	<version>1.0</version>
-	<vendor email="info@broth.eu" url="https://github.com/broth-eu">Broth-EU</vendor>
+	<version>0.5</version>
+	<vendor url="https://github.com/broth-eu">Bastian Roth</vendor>
 
 	<description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Seamless integration of GitLab issues and IntelliJ local task.
+	  <br/><br/>
+      Beyond that, you can also create new and edit existing issues. Due to limitations of GitLab, deleting issues is not supported.
     ]]></description>
 
 	<change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
     ]]>
 	</change-notes>
 
