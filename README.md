@@ -17,11 +17,11 @@ displayed in a special tool window (reasonably called GitLab Issues). It offers 
 existing issues. Deleting issues is not possible since GitLab does not support it as well.
 
 In addition to GitLab, a third issue state has been added which we call "active". This state is just managed locally,
-i.e. the GitLab server does not realize anything of it. Here, the linkage of GitLab issues and IntelliJ local tasks
+i.e. the GitLab server does not know anything about it. Here, the linkage of GitLab issues and IntelliJ local tasks
 comes into play: the first time an issue is started, a new local task is created and activated (which also activates
 the associated working context). If an active issue is stopped the default task is activated but the linkage between
-issue and local task remains. The local task is removed only after the linked issue has been closed. In case an issue
-is started again the already linked task is re-activated.
+issue and local task remains. In case an issue is started again the already linked task is re-activated. The local task
+is removed only after the linked issue has been closed. 
 
 
 ## Motivation behind this project
