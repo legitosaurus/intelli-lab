@@ -21,7 +21,9 @@ i.e. the GitLab server does not know anything about it. Here, the linkage of Git
 comes into play: the first time an issue is started, a new local task is created and activated (which also activates
 the associated working context). If an active issue is stopped the default task is activated but the linkage between
 issue and local task remains. In case an issue is started again the already linked task is re-activated. The local task
-is removed only after the linked issue has been closed. 
+is removed only after the linked issue has been closed.
+
+For an exhaustive list of all features, see the [changelog](CHANGELOG.md).
 
 
 ## Motivation behind this project
