@@ -5,7 +5,7 @@
 	<vendor url="https://github.com/broth-eu">Bastian Roth</vendor>
 
 	<description><![CDATA[
-      Seamless integration of GitLab issues and IntelliJ local task.
+      Seamless integration of GitLab issues and IntelliJ local tasks.
 	  <br/><br/>
       Beyond that, you can also create new and edit existing issues. Due to limitations of GitLab, deleting issues is not supported.
     ]]></description>
