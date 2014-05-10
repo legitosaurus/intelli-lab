@@ -2,6 +2,7 @@ package eu.broth.intellilab.ui;
 
 import com.intellij.ui.ColorUtil;
 import com.intellij.ui.JBColor;
+import com.intellij.util.ui.UIUtil;
 import eu.broth.intellilab.model.GitlabIssue;
 
 import javax.swing.*;
@@ -33,19 +34,20 @@ class IssueRenderer extends DefaultTableCellRenderer {
 	private void adaptLabel(JLabel label, GitlabIssue issue, int column, boolean isSelected) {
 		label.setText(getText(issue, column));
 
+		boolean dark = UIUtil.isUnderDarcula();
 		Color textColor = JBColor.foreground();
-		Color errorColor = JBColor.red;
+		Color bugColor = JBColor.red;
 		if (issue.isClosed()) {
-			textColor = textColor.darker();
-			errorColor = errorColor.darker();
+			textColor = dark ? textColor.darker() : ColorUtil.mix(textColor, JBColor.white, 0.4);
+			bugColor = dark ? bugColor.darker() : ColorUtil.mix(bugColor, JBColor.white, 0.4);
 		}
 		if (issue.getState() == GitlabIssue.State.ACTIVE) {
 			textColor = ColorUtil.mix(textColor, JBColor.green, 0.6);
 		} else if (issue.isBug()) {
-			textColor = ColorUtil.mix(textColor, errorColor, 0.7);
+			textColor = ColorUtil.mix(textColor, bugColor, 0.7);
 		}
 		if (isSelected) {
-			textColor = textColor.brighter();
+			textColor = dark ? textColor.brighter() : textColor.darker().darker();
 		}
 		label.setForeground(textColor);
 
