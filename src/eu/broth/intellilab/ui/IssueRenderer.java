@@ -15,11 +15,7 @@ import java.awt.*;
  */
 class IssueRenderer extends DefaultTableCellRenderer {
 
-	private static final ClassLoader LOADER = IssueRenderer.class.getClassLoader();
-	private static final Icon TASK_OPEN = new ImageIcon(LOADER.getResource("task-open.png"), "Task");
-	private static final Icon TASK_CLOSED = new ImageIcon(LOADER.getResource("task-closed.png"), "Task closed");
-	private static final Icon BUG_OPEN = new ImageIcon(LOADER.getResource("bug-open.png"), "Bug");
-	private static final Icon BUG_CLOSED = new ImageIcon(LOADER.getResource("bug-closed.png"), "Bug closed");
+
 
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -54,15 +50,15 @@ class IssueRenderer extends DefaultTableCellRenderer {
 		if (column == 0) {
 			if (issue.isBug()) {
 				if (issue.isClosed())
-					label.setIcon(BUG_CLOSED);
+					label.setIcon(Icons.BUG_CLOSED);
 				else
-					label.setIcon(BUG_OPEN);
+					label.setIcon(Icons.BUG_OPEN);
 			}
 			else {
 				if (issue.isClosed())
-					label.setIcon(TASK_CLOSED);
+					label.setIcon(Icons.TASK_CLOSED);
 				else
-					label.setIcon(TASK_OPEN);
+					label.setIcon(Icons.TASK_OPEN);
 			}
 		} else {
 			label.setIcon(null);
