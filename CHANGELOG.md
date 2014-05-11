@@ -1,3 +1,10 @@
+# 0.x
+
+__Enhancements:__
+
+ * Support for light themes
+
+
 # 0.5
 
 __Features:__
