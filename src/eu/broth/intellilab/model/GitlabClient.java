@@ -71,7 +71,7 @@ public class GitlabClient {
 					if (!issue.isClosed()) {
 						// issue has been closed externally
 						int result = Messages.showYesNoDialog("Local task associated with GitLab issue #" + issue.getLocalId() + " has currently been removed.\n\n" +
-								"Do you want to close this issue as well?", "Close issue?", Messages.getQuestionIcon());
+								"Do you want to close this issue as well?", "Close Issue?", Messages.getQuestionIcon());
 						if (result == Messages.YES) {
 							GitlabIssue.Transition transition = issue.isActive() ? GitlabIssue.Transition.ACTIVE_TO_CLOSE : GitlabIssue.Transition.OPEN_TO_CLOSE;
 							performIssueTransition(issue, transition);

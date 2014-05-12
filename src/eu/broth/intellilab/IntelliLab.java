@@ -2,6 +2,7 @@ package eu.broth.intellilab;
 
 import com.intellij.openapi.components.*;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.tasks.LocalTask;
 import com.intellij.tasks.TaskListener;
 import com.intellij.tasks.TaskListenerAdapter;
@@ -130,11 +131,18 @@ public class IntelliLab extends AbstractProjectComponent implements PersistentSt
 	public void issueClosed(GitlabIssue issue) {
 		LocalTask task = issue.getTask();
 		if (task != null) {
-			// remove association between issue and task and drop the latter one
-			manager.removeTask(issue.getTask());
-			setValue(issue, "task", null);
+			LocalTask foundTask = manager.findTask(task.getId());
+			if (foundTask != null) {
+				int result = Messages.showYesNoDialog("Would you like to remove the associated task as well?",
+						"Remove Task?", Messages.getQuestionIcon());
+				if (result == Messages.YES) {
+					// drop the associated task
+					manager.removeTask(issue.getTask());
+				}
+			}
 
-			// remove augmentation data for given issue
+			// eliminate issue task association
+			setValue(issue, "task", null);
 			store.issues.remove(issue.getId());
 		}
 	}
